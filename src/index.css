@@ -1,0 +1,161 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap");
+@import url("https://unpkg.com/leaflet@1.9.4/dist/leaflet.css");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    --background: 0 0% 98%;
+    --foreground: 264 38% 14%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 264 38% 14%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 264 38% 14%;
+
+    --primary: 20 90% 51%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 264 41% 41%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 264 20% 90%;
+    --muted-foreground: 264 38% 35%;
+
+    --accent: 261 42% 29%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 72% 50%;
+    --destructive-foreground: 0 85% 97%;
+
+    --border: 264 20% 85%;
+    --input: 264 20% 85%;
+    --ring: 20 90% 51%;
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 264 38% 14%;
+
+    --sidebar-foreground: 0 0% 98%;
+
+    --sidebar-primary: 20 90% 51%;
+
+    --sidebar-primary-foreground: 0 0% 100%;
+
+    --sidebar-accent: 261 42% 29%;
+
+    --sidebar-accent-foreground: 0 0% 98%;
+
+    --sidebar-border: 264 30% 25%;
+
+    --sidebar-ring: 20 90% 51%;
+
+    --chart-1: 20 90% 51%;
+
+    --chart-2: 264 41% 41%;
+
+    --chart-3: 261 42% 29%;
+
+    --chart-4: 264 38% 14%;
+
+    --chart-5: 30 80% 55%;
+
+    --sidebar: 264 38% 14%;
+
+    --font-sans: 'Roboto', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
+
+    --font-serif: 'Libre Caslon Text', ui-serif, Georgia, Cambria, 'Times New Roman', Times, serif;
+
+    --font-mono: 'Roboto Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+
+    --shadow-2xs: 0 1px 3px 0px hsl(0 0% 0% / 0.05);
+
+    --shadow-xs: 0 1px 3px 0px hsl(0 0% 0% / 0.05);
+
+    --shadow-sm: 0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 1px 2px -1px hsl(0 0% 0% / 0.1);
+
+    --shadow: 0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 1px 2px -1px hsl(0 0% 0% / 0.1);
+
+    --shadow-md: 0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 2px 4px -1px hsl(0 0% 0% / 0.1);
+
+    --shadow-lg: 0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 4px 6px -1px hsl(0 0% 0% / 0.1);
+
+    --shadow-xl: 0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 8px 10px -1px hsl(0 0% 0% / 0.1);
+
+    --shadow-2xl: 0 1px 3px 0px hsl(0 0% 0% / 0.25);
+
+    --tracking-normal: 0em;
+
+    --spacing: 0.25rem;
+  }
+
+  .dark {
+    --background: 264 38% 8%;
+    --foreground: 0 0% 98%;
+
+    --card: 264 38% 12%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 264 38% 14%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 20 90% 51%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 264 41% 41%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 264 30% 20%;
+    --muted-foreground: 264 20% 70%;
+
+    --accent: 261 42% 29%;
+    --accent-foreground: 0 0% 98%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 85% 97%;
+
+    --border: 264 30% 25%;
+    --input: 264 30% 25%;
+    --ring: 20 90% 51%;
+    --sidebar-background: 264 38% 10%;
+    --sidebar-foreground: 0 0% 98%;
+    --sidebar-primary: 20 90% 51%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 261 42% 29%;
+    --sidebar-accent-foreground: 0 0% 98%;
+    --sidebar-border: 264 30% 20%;
+    --sidebar-ring: 20 90% 51%;
+    --chart-1: 20 90% 55%;
+    --chart-2: 264 50% 55%;
+    --chart-3: 261 50% 45%;
+    --chart-4: 30 80% 55%;
+    --chart-5: 264 30% 50%;
+    --sidebar: 264 38% 10%;
+    --shadow-2xs: 0 1px 3px 0px hsl(0 0% 0% / 0.05);
+    --shadow-xs: 0 1px 3px 0px hsl(0 0% 0% / 0.05);
+    --shadow-sm: 0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 1px 2px -1px hsl(0 0% 0% / 0.1);
+    --shadow: 0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 1px 2px -1px hsl(0 0% 0% / 0.1);
+    --shadow-md: 0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 2px 4px -1px hsl(0 0% 0% / 0.1);
+    --shadow-lg: 0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 4px 6px -1px hsl(0 0% 0% / 0.1);
+    --shadow-xl: 0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 8px 10px -1px hsl(0 0% 0% / 0.1);
+    --shadow-2xl: 0 1px 3px 0px hsl(0 0% 0% / 0.25);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
